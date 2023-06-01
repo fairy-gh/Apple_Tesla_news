@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="articles"
+            type="com.fereshte.appletesllanews.data.local.model.ArticlesObjectModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:rippleColor="@color/gray_100"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/news_headLine_txv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{articles.title}"
+                tools:text="This is a news headLine"
+                android:maxLines="2"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_dark"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/news_img"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:imageView="@{articles.urlToImage}"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/news_headLine_txv" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/news_publishDate_txv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{articles.publishedAt}"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/news_img"
+                tools:text="2022/01/11"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">News app</string>
+    <string name="base_url">https://newsapi.org/v2/</string>
+    <string name="api_key">ad283f9471f54f23b70e32be824ea1b3</string>
+    <string name="apple">apple</string>
+    <string name="tesla">tesla</string>
+</resources>
