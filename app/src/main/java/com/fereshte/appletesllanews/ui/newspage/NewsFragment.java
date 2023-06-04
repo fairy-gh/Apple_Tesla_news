@@ -21,6 +21,8 @@ public class NewsFragment extends Fragment {
     private FragmentNewsBinding mBinding;
     private NewsViewModel newsViewModel;
     private Boolean isAllNewsSet = true;
+    private List<ArticlesObjectModel> list;
+    private NewsAdapter adapter = new NewsAdapter(getContext(), list);
 
     public static Fragment getInstance(int position) {
         NewsFragment fragment = new NewsFragment();
@@ -82,7 +84,7 @@ public class NewsFragment extends Fragment {
     }
 
     private void setupRecyclerView(List<ArticlesObjectModel> news) {
-        NewsAdapter adapter = new NewsAdapter(getContext(), news);
+        adapter = new NewsAdapter(getContext(), news);
         mBinding.newsRcv.setAdapter(adapter);
     }
 

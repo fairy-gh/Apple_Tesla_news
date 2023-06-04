@@ -46,8 +46,8 @@ public class NewsViewModel extends AndroidViewModel {
     private void getNews(String company) {
         Call<NewsModel> call =
                 repository.getApiServiceData(company,
-                        "2023-01-18",
-                        "popularity",
+                        "2023-05-04",
+                        "publishedAt",
                         getApplication().getResources().getString(R.string.api_key));
         call.enqueue(new Callback<NewsModel>() {
             @Override
@@ -55,13 +55,11 @@ public class NewsViewModel extends AndroidViewModel {
                 if(response.body() != null){
                     setProgressVisibility(false);
                     setArticlesList(response.body().getArticles());
-                    Log.e("news", response.body().getArticles().toString());
                 }
             }
             @Override
             public void onFailure(@NonNull Call<NewsModel> call, @NonNull Throwable t) {
                 setProgressVisibility(true);
-                Log.e("news error ->", "Error");
             }
         });
     }
